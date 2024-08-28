@@ -4,12 +4,19 @@
   "description": "An api which will implement secure transactions for financial institutions using the SIM SWAP API from africa's talking. ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/254binaryninja/SecurePay.git"
   },
   "author": "Arnold Musandu and Addy Munene",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  }
 }
