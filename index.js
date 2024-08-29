@@ -4,7 +4,7 @@ const cors = require('cors')
 
 
 const app = express()
-const PORT = 3000
+const PORT = 3001
 
 app.use('/v1/secure-pay', secureRouter)
 app.use(express.json())
