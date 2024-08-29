@@ -1,0 +1,47 @@
+[
+    {
+      "transactionId": "123456789",
+      "amount": "1000.00",
+      "date": "2024-08-29T12:30:00Z",
+      "description": "M-PESA Transfer",
+      "currency": "KES",
+      "sender": "+254701729985",
+      "recipient": "+254712345678"
+    },
+    {
+      "transactionId": "987654321",
+      "amount": "500.00",
+      "date": "2024-08-28T18:15:00Z",
+      "description": "Airtime Purchase",
+      "currency": "KES",
+      "sender": "+254701729985",
+      "recipient": "Safaricom"
+    },
+    {
+      "transactionId": "456789123",
+      "amount": "200.00",
+      "date": "2024-08-27T10:45:00Z",
+      "description": "Bill Payment",
+      "currency": "KES",
+      "sender": "+254701729985",
+      "recipient": "Kenya Power"
+    },
+    {
+      "transactionId": "789123456",
+      "amount": "300.00",
+      "date": "2024-08-26T15:30:00Z",
+      "description": "Bank Transfer",
+      "currency": "KES",
+      "sender": "+254701729985",
+      "recipient": "ABC Bank"
+    },
+    {
+      "transactionId": "111222333",
+      "amount": "150.00",
+      "date": "2024-08-25T09:00:00Z",
+      "description": "Shopping",
+      "currency": "KES",
+      "sender": "+254701729985",
+      "recipient": "XYZ Supermarket"
+    }
+  ]
