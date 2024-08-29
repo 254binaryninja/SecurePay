@@ -1,23 +1,39 @@
 const path = require('path');
 require("dotenv").config({ path: path.join(__dirname, '..', '.env') });
 const Africastalking = require('africastalking')
+const { getTransactionDetails } = require('./queryService');
 
 const africastalking = Africastalking({
     apiKey: process.env.SMS_API_KEY,
     username: process.env.USER_NAME
 })
 
+// const sandboxPhoneNumber = '+254796984597';
+
 async function authenticationSwapped(phoneNo, userName) {
-    try {
-        await africastalking.SMS.send({
-            to: phoneNo,
-            message: `Hello, ${userName} here. I see you are trying to make a payment. Please confirm if you have swapped your SIM card. Reply with your saved 10 digit pIN if you have swapped your SIM card. If you have not swapped your SIM card, reply with the word "NO".`,
-            from: process.env.SENDER_ID
-        });
-    } catch (error) {
-        console.log(error)
+    const { proceed, failureReason } = await getTransactionDetails(phoneNo);
+
+    let message;
+    if (proceed === 'yes') {
+        message = `Hello, ${userName}. No SIM swap detected. Your transaction can proceed normally.`;
+    } else if (proceed === 'no') {
+        message = `Hello, ${userName}. A SIM swap has been detected. Please confirm your identity by replying with your 10-digit PIN.`;
+    } else {
+        message = `Hello, ${userName}. We encountered an issue checking your SIM status: ${failureReason}. Please try again later.`;
     }
+
+    try {
+    const result = await africastalking.SMS.send({
+      // to: sandboxPhoneNumber, // Use sandbox number instead of phoneNo
+      message: message,
+      from: process.env.SENDER_ID
+    });
+    console.log('SMS sent:', result);
+  } catch (error) {
+    console.log(error);
+  }
 }
+
 
 async function authenticationAmount(phoneNo, amount, userName) {
     try {
