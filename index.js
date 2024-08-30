@@ -23,6 +23,12 @@ app.post('/sms-callback', express.json(), (req, res) => {
   res.sendStatus(200);
 });
 
+// New GET callback
+app.get('/callback', (req, res) => {
+  console.log('Received callback:', req.query);
+  // Process the incoming callback here
+  res.sendStatus(200);
+});
 
 app.listen(PORT, () => {
     console.log(`SecurePay listening on port ${PORT}`);

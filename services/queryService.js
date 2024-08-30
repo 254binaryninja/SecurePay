@@ -7,7 +7,8 @@ async function getTransactionDetails(phoneNo) {
     let failureReason = '';
     const requestBody = {
       "username": process.env.USER_NAME,
-      "phoneNumbers": phoneNo
+      "phoneNumbers": phoneNo,
+      "callbackUrl": process.env.CALLBACK_URL,
     };
 
     console.log('Request body:', JSON.stringify(requestBody, null, 2));
